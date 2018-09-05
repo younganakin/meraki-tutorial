@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0">
+    {% load static %}
+    <script type="text/javascript" src="{% static 'kfc/js/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'kfc/js/popper.js' %}"></script>
+    <script type="text/javascript" src="{% static 'kfc/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'kfc/js/index.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'kfc/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'kfc/css/all.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'kfc/css/bootstrap-social.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'kfc/css/index.css' %}" />
+    <title>KFC Wifi</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3">
+                <form>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control form-control-lg" id="email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control form-control-lg" id="password">
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Keep me signed in</label>
+                    </div>
+                    <div class="form-group">
+                        <a class="btn btn-block btn-social btn-google" href="{% url 'social:begin' 'google-oauth2' %}">
+                            <span class="fa fa-google"></span>
+                            Sign in with Google
+                        </a>
+                    </div>
+                    <div class="form-group">
+                        <a class="btn btn-block btn-social btn-twitter">
+                            <span class="fa fa-twitter"></span>
+                            Sign in with Twitter
+                        </a>
+                    </div>
+                    <div class="form-group">
+                        <a class="btn btn-block btn-social btn-facebook">
+                            <span class="fa fa-facebook"></span>
+                            Sign in with Facebook
+                        </a>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
