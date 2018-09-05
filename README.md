@@ -1,2 +1,2 @@
 # meraki-tutorial
-A demo sing Meraki API.
+A demo illustaring the use of Meraki Dashboard API and Captive Portal API.
