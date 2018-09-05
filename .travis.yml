@@ -1,7 +1,5 @@
 language: python
 
-os: linux
-
 python:
   - 3.6.5
 
@@ -19,7 +17,9 @@ install:
   - pip install -r requirements.txt
 
 before_script:
-  - psql -c "CREATE DATABASE meraki;" -U fatjoe
+  - psql -c "CREATE DATABASE meraki;" -U postgres
+  - psql -c "CREATE USER fatjoe WITH PASSWORD 'Darthvader_89';" -U postgres	
+  - psql -c "GRANT ALL PRIVILEGES ON DATABASE meraki to fatjoe;" -U postgres
   - python manage.py migrate
 
 script:
