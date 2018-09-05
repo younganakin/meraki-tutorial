@@ -1,0 +1,26 @@
+language: python
+
+os: linux
+
+python:
+  - 3.6.5
+
+services: postgresql 10
+
+env:
+  - DJANGO=2.1.1
+
+before_install:
+  - export DJANGO_SETTINGS_MODULE=splash.settings
+  - export PYTHONPATH=$HOME/build/younganakin/meraki-tutorial
+  - export PIP_USE_MIRRORS=true
+
+install:
+  - pip install -r requirements.txt
+
+before_script:
+  - psql -c "CREATE DATABASE meraki;" -U postgres
+  - python manage.py migrate
+
+script:
+  - python manage.py test
