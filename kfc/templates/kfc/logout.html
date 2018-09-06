@@ -1,0 +1,21 @@
+{% extends "kfc/base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'kfc/css/home.css' %}" />
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{% static 'kfc/js/home.js' %}"></script>
+{% endblock %}
+
+{% block title %}Logout{% endblock %}
+
+{% block content %}
+<div class="row">
+    <h3>Logout</h3>
+    <a class="btn btn-block" href="{% url 'index' %}">
+        Sign in.
+    </a>
+</div>
+{% endblock %}

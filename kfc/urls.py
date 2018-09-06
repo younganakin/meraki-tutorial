@@ -8,5 +8,5 @@ urlpatterns = [
     # ex: /kfc/home/
     path('home/', views.home, name='home'),
     # ex: /kfc/logout/
-    path('logout/', views.index, name='logout'),
+    path('logout/', views.logout, name='logout'),
 ]
