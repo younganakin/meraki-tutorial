@@ -10,6 +10,9 @@ addons:
     - postgresql-10
     - postgresql-client-10
 
+services:
+    - postgresql
+
 env:
   - DJANGO=2.1.1
 
