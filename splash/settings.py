@@ -26,7 +26,7 @@ SECRET_KEY = '&c_9)86i&h1l-*q*akyzv_pgo59qz_8q(^+2@5exkgsnzhz$k%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['209.97.132.3']
+ALLOWED_HOSTS = ['jnjuguna.com', '209.97.132.3']
 
 
 # Application definition
