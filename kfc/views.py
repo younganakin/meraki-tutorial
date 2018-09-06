@@ -37,8 +37,9 @@ def home(request):
     client_ip = request.session['client_ip']
     client_mac = request.session['client_mac']
 
-    redirect_url = base_grant_url + '?continue_url=' + user_continue_url
-    # return render(request, 'kfc/home.html')
+    continue_url = 'https://www.google.com/'
+
+    redirect_url = base_grant_url + '?continue_url=' + continue_url
     return redirect(redirect_url)
 
 
