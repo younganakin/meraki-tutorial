@@ -1,4 +1,9 @@
 $(document).ready(function () {
+    var params = getSearchParameters();
+
+    var base_grant_url = decodeURIComponent(params.base_grant_url);
+    console.log(base_grant_url);
+
 
     // Handle sma form data when submit is clicked
     $('#index-form').on('submit', function (event) {
@@ -36,5 +41,20 @@ $(document).ready(function () {
             }
         }
         return cookieValue;
+    }
+
+    function getSearchParameters() {
+        var prmstr = window.location.search.substr(1);
+        return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
+    }
+
+    function transformToAssocArray(prmstr) {
+        var params = {};
+        var prmarr = prmstr.split("&");
+        for (var i = 0; i < prmarr.length; i++) {
+            var tmparr = prmarr[i].split("=");
+            params[tmparr[0]] = tmparr[1];
+        }
+        return params;
     }
 });
