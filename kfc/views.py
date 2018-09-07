@@ -3,6 +3,8 @@ from furl import furl
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
+from .models import Contacts
+from django.utils import timezone
 
 # Create your views here.
 
@@ -24,8 +26,6 @@ def index(request):
     request.session['client_ip'] = client_ip
     request.session['client_mac'] = client_mac
 
-    print(base_grant_url)
-
     return render(request, 'kfc/index.html')
 
 
@@ -38,12 +38,19 @@ def home(request):
     gateway_id = request.session['gateway_id']
     client_ip = request.session['client_ip']
     client_mac = request.session['client_mac']
+    user_email = request.user.email
+
+    contact = Contacts(email=user_email,
+                       node_id=node_id,
+                       node_mac=node_mac,
+                       gateway_id=gateway_id,
+                       client_ip=client_ip,
+                       client_mac=client_mac,
+                       logged_in=timezone.now())
+
+    contact.save()
 
     continue_url = 'https://www.google.com/'
 
     redirect_url = base_grant_url + '/?continue_url=' + continue_url
     return redirect(redirect_url)
-
-
-def logout(request):
-    return render(request, 'kfc/logout.html')
