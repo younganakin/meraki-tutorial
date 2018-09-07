@@ -5,6 +5,9 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from .models import Contacts
 from django.utils import timezone
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
 
 # Create your views here.
 
@@ -54,3 +57,14 @@ def home(request):
 
     redirect_url = base_grant_url + '/?continue_url=' + continue_url
     return redirect(redirect_url)
+
+
+@api_view(['POST'])
+def login_api(request):
+    email = request.data['email']
+    name = request.data['name']
+
+    request.session['email'] = email
+    request.session['name'] = name
+
+    return Response(status=status.HTTP_200_OK)

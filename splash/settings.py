@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'jnjuguna.com', '209.97.132.3']
 INSTALLED_APPS = [
     'kfc.apps.KfcConfig',
     'social_django',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
